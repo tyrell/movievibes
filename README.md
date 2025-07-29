@@ -49,7 +49,7 @@ ollama run llama3
 1. **Clone the repo**
 
 ```bash
-git clone https://github.com/yourusername/movievibes.git
+git clone https://github.com/tyrell/movievibes.git
 cd movievibes
 ```
 
