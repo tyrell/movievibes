@@ -1,0 +1,5 @@
+spring.application.name=movievibes
+spring.ai.ollama.base-url=http://localhost:11434
+spring.ai.ollama.model=llama3
+omdb.url=https://www.omdbapi.com/
+omdb.api-key=REPLACE_WITH_YOUR_KEY
