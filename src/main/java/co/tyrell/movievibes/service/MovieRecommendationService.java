@@ -15,7 +15,7 @@ public class MovieRecommendationService {
     @Autowired
     OllamaChatModel chatModel;
 
-    private static final Logger logger = LoggerFactory.getLogger(MovieVibeService.class);
+    private static final Logger logger = LoggerFactory.getLogger(MovieRecommendationService.class);
 
     public List<String> generateRecommendations(String title, String vibe) {
         String prompt = String.format("""
