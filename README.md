@@ -53,17 +53,18 @@ git clone https://github.com/tyrell/movievibes.git
 cd movievibes
 ```
 
-2. **Configure OMDb API Key**
+2. **Configure Ollama and OMDb API Key**
 
-In `application.yml` or `application.properties`:
+In `application.properties`:
 
-```yaml
-omdb:
-  base-url: https://www.omdbapi.com
-  api-key: your_api_key_here
+```properties
+spring.ai.ollama.base-url=http://localhost:11434
+spring.ai.ollama.model=llama3
+omdb.url=https://www.omdbapi.com/
+omdb.api-key=REPLACE_WITH_YOUR_KEY
 ```
 
-3. **Build the project**
+1. **Build the project**
 
 ```bash
 mvn clean install
