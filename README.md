@@ -1,6 +1,6 @@
 # 🎬 Movie Vibes
 
-**Movie Vibes** is an AI-powered Spring Boot application that determines the *vibe* of a given movie using metadata such as title, genre, plot, and actors. It then uses a local LLM (Spring AI) to recommend similar movies that share the same emotional or thematic feel.
+**Movie Vibes** is an AI-powered application that determines the *vibe* of a given movie using metadata and recommends similar movies that share the same emotional or thematic feel. It features a Spring Boot backend with Spring AI and a modern React frontend.
 
 ---
 
@@ -10,9 +10,13 @@
 - 🧠 Use a local Large Language Model (LLM) via Spring AI to:
   - Determine the **vibe** of a movie
   - Recommend **similar movies**
-- 🧾 Structured JSON responses
-- ✅ Ready for UI or API consumers
-- 🧪 Easily testable and extensible
+- 🎨 Modern React + TypeScript frontend with custom CSS
+- 📱 Responsive design for all devices
+- 🧾 Structured JSON API responses with full movie metadata
+- ⚡ Real-time loading states and error handling
+- 🎯 2-minute timeout for AI operations
+- 🖼️ Movie poster images for main movies and recommendations
+- ✅ Ready for production deployment
 
 ---
 
@@ -20,12 +24,14 @@
 
 | Layer        | Technology               |
 |--------------|---------------------------|
+| Frontend     | React 18 + TypeScript    |
+| Styling      | Pure CSS (Custom Utilities) |
 | Backend      | Spring Boot 3.x           |
 | LLM Interface| Spring AI                 |
 | HTTP Client  | RestTemplate              |
 | Movie Data   | OMDb API                  |
-| Build Tool   | Maven                     |
-| Language     | Java 17+                  |
+| Build Tool   | Maven + npm               |
+| Language     | Java 17+ + TypeScript    |
 
 ---
 
@@ -33,29 +39,33 @@
 
 - Java 17+
 - Maven 3.8+
+- Node.js 16+ and npm
+- Ollama with llama3 model
 - OMDb API key (free: https://www.omdbapi.com/apikey.aspx)
 
 ---
 
 ## 🔧 Setup
 
-0. Start Ollama
+### Backend Setup
+
+1. **Start Ollama**
 
 ```bash
 ollama pull llama3
 ollama run llama3
 ```
 
-1. **Clone the repo**
+2. **Clone the repo**
 
 ```bash
 git clone https://github.com/tyrell/movievibes.git
 cd movievibes
 ```
 
-2. **Configure Ollama and OMDb API Key**
+3. **Configure API Key**
 
-In `application.properties`:
+In `src/main/resources/application.properties`:
 
 ```properties
 spring.ai.ollama.base-url=http://localhost:11434
@@ -64,17 +74,36 @@ omdb.url=https://www.omdbapi.com/
 omdb.api-key=REPLACE_WITH_YOUR_KEY
 ```
 
-1. **Build the project**
+4. **Build and run the backend**
 
 ```bash
 mvn clean install
-```
-
-4. **Run the application**
-
-```bash
 mvn spring-boot:run
 ```
+
+The backend will be available at `http://localhost:8080`
+
+### Frontend Setup
+
+1. **Navigate to frontend directory**
+
+```bash
+cd frontend
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Start the development server**
+
+```bash
+npm start
+```
+
+The frontend will be available at `http://localhost:3000`
 
 ---
 
@@ -86,35 +115,81 @@ mvn spring-boot:run
 
 ```json
 {
-    "originalTitle": "Mission: Impossible",
-    "vibe": " The vibe of \"Mission: Impossible\" is an exhilarating and suspenseful action-adventure, where a falsely accused secret agent embarks on a high-stakes mission to clear his name and uncover the true traitor, all while evading danger and outwitting enemies.",
-    "recommendedMovies": [
-        ". \"Bourne Identity\" - A man suffering from amnesia discovers he's a highly trained assassin and sets out to uncover his past while eluding the CIA.",
-        ". \"Casino Royale\" - James Bond earns his 00 status by taking on a dangerous terrorist who plans to bankrupt a casino in this action-packed spy thriller.",
-        ". \"The Dark Knight\" - Batman must confront the Joker and prevent him from wreaking havoc on Gotham City in this gritty superhero tale.",
-        ". \"Die Hard\" - A New York cop, John McClane, battles terrorists inside a Los Angeles skyscraper during a Christmas party, determined to save hostages and thwart the heist.",
-        ". \"The Thomas Crown Affair\" - A wealthy and sophisticated thief, Thomas Crown, is suspected of a daring art heist and must outwit investigator Vincent Terrell in this cat-and-mouse thriller."
+    "movie": {
+        "title": "Mission: Impossible",
+        "year": "1996",
+        "genre": "Action, Adventure, Thriller",
+        "plot": "An American agent, under false suspicion of disloyalty...",
+        "poster": "https://...",
+        "imdbRating": "7.2"
+    },
+    "vibeAnalysis": "An exhilarating and suspenseful action-adventure...",
+    "recommendations": [
+        {
+            "title": "The Bourne Identity",
+            "year": "2002",
+            "genre": "Action, Mystery, Thriller",
+            ...
+        }
     ]
 }
 ```
 
 ---
 
+## 🎨 Frontend Features
+
+- **🔍 Movie Search**: Intuitive search interface
+- **🎬 Movie Cards**: Beautiful displays with posters and details for main movies and recommendations
+- **🧠 Vibe Analysis**: AI-generated mood and theme analysis
+- **📱 Responsive Design**: Works on desktop, tablet, and mobile
+- **⚡ Real-time Updates**: Live loading states and error handling
+- **🎯 Recommendations**: Grid layout of similar movies with full metadata and posters
+
+---
+
 ## ✅ Status
 
-✔️ Core functionality implemented  
+✔️ Backend API implemented  
+✔️ React frontend with custom CSS design system  
+✔️ CORS configuration for frontend-backend communication  
+✔️ Responsive design for mobile, tablet, and desktop  
+✔️ 2-minute timeout handling for AI operations  
+✔️ Automatic API response format transformation  
+✔️ Comprehensive error handling and user feedback  
+✔️ Movie poster images for main movies and recommendations  
+✔️ Full movie metadata fetching from OMDb API  
 🧪 Test coverage pending  
-🎨 UI planned (React + Tailwind)
+🚀 Ready for deployment
 
 ---
 
 ## 🌟 Future Improvements
 
 - Add caching for OMDb API responses
-- Add a simple web UI (React + Tailwind)
-- Integrate with a remote LLM (OpenAI, Cohere, Claude, etc.)
-- Add movie poster thumbnails
-- Dockerize the application
+- Integrate with additional movie databases
+- Add user accounts and favorites
+- Implement movie ratings and reviews
+- Add dark mode theme
+- Dockerize the full application
+- Add comprehensive test coverage
+
+---
+
+## 📁 Project Structure
+
+```
+movievibes/
+├── src/main/java/           # Spring Boot backend
+│   └── co/tyrell/movievibes/
+├── frontend/                # React frontend
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── services/       # API services
+│   │   └── types/          # TypeScript types
+│   └── public/
+└── README.md
+```
 
 ---
 
@@ -126,6 +201,6 @@ MIT License
 
 ## ✨ Credits
 
-Built with ❤️ using Spring Boot, Spring AI, and Open Movie Database API.
+Built with ❤️ using Spring Boot, Spring AI, React, and Open Movie Database API.
 
 ---

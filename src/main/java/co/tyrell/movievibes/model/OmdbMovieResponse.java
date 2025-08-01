@@ -20,6 +20,42 @@ public class OmdbMovieResponse {
     @JsonProperty("Actors")
     private String actors;
 
+    @JsonProperty("Poster")
+    private String poster;
+
+    @JsonProperty("Director")
+    private String director;
+
+    @JsonProperty("Writer")
+    private String writer;
+
+    @JsonProperty("Rated")
+    private String rated;
+
+    @JsonProperty("Released")
+    private String released;
+
+    @JsonProperty("Runtime")
+    private String runtime;
+
+    @JsonProperty("Language")
+    private String language;
+
+    @JsonProperty("Country")
+    private String country;
+
+    @JsonProperty("Awards")
+    private String awards;
+
+    @JsonProperty("imdbRating")
+    private String imdbRating;
+
+    @JsonProperty("imdbID")
+    private String imdbID;
+
+    @JsonProperty("Type")
+    private String type;
+
     @JsonProperty("Response")
     private String response;
 
@@ -64,6 +100,54 @@ public class OmdbMovieResponse {
 
     public String getActors() {
         return actors;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public String getRated() {
+        return rated;
+    }
+
+    public String getReleased() {
+        return released;
+    }
+
+    public String getRuntime() {
+        return runtime;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getAwards() {
+        return awards;
+    }
+
+    public String getImdbRating() {
+        return imdbRating;
+    }
+
+    public String getImdbID() {
+        return imdbID;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String getResponse() {
