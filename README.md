@@ -1,10 +1,6 @@
 # 🎬 Movie Vibes
 
-[![CI](https://github.com/tyrell/movievibes/actions/workflows/ci.yml/badge.svg)](https://## 🔧 Manual Setup
-
-*If you prefer to run without Docker or want to develop locally:*
-
-### Backend Setuphub.com/tyrell/movievibes/actions/workflows/ci.yml)
+[![CI](https://github.com/tyrell/movievibes/actions/workflows/ci.yml/badge.svg)](https://github.com/tyrell/movievibes/actions/workflows/ci.yml)
 [![Package](https://github.com/tyrell/movievibes/actions/workflows/package.yml/badge.svg)](https://github.com/tyrell/movievibes/actions/workflows/package.yml)
 [![Release](https://github.com/tyrell/movievibes/actions/workflows/release.yml/badge.svg)](https://github.com/tyrell/movievibes/actions/workflows/release.yml)
 [![Latest Release](https://img.shields.io/github/v/release/tyrell/movievibes?include_prereleases&label=release)](https://github.com/tyrell/movievibes/releases)
@@ -83,7 +79,7 @@
 
 ---
 
-## � Quick Start with Docker (Recommended)
+## 🚀 Quick Start with Docker (Recommended)
 
 The easiest way to run Movie Vibes is using Docker. **Both frontend and backend are built and served from a single container:**
 
@@ -110,7 +106,7 @@ That's it! The Docker setup automatically:
 
 ---
 
-## �🔧 Manual Setup
+## 🔧 Manual Setup
 
 ### Backend Setup
 

@@ -20,7 +20,7 @@ if [ $? -eq 0 ]; then
         echo ""
     fi
     
-    docker-compose up -d
+    docker compose up -d
     
     echo ""
     echo "🎬 Movie Vibes is starting up..."
@@ -28,8 +28,8 @@ if [ $? -eq 0 ]; then
     echo "🤖 API endpoint: http://localhost:8080/api/agent/recommendations?title=Inception"
     echo "🔧 Ollama API: http://localhost:11434"
     echo ""
-    echo "📊 Check status with: docker-compose logs -f"
-    echo "🛑 Stop with: docker-compose down"
+    echo "📊 Check status with: docker compose logs -f"
+    echo "🛑 Stop with: docker compose down"
     echo ""
     echo "💡 The frontend is now served directly from the Spring Boot backend!"
 else
