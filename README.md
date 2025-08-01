@@ -81,13 +81,13 @@
 
 ## 🚀 Quick Start with Docker (Recommended)
 
-The easiest way to run Movie Vibes is using Docker. **Both frontend and backend are built and served from a single container:**
+The easiest way to run Movie Vibes is using Docker. **Both frontend and backend are built and served from a single container with pre-downloaded AI models:**
 
 ```bash
 # 1. Set your OMDb API key
 export OMDB_API_KEY=your_api_key_here
 
-# 2. Start the application (builds everything automatically)
+# 2. Start the application (first run: ~10 min build, subsequent: ~30 sec)
 ./docker-start.sh
 
 # 3. Access the application
@@ -96,13 +96,16 @@ export OMDB_API_KEY=your_api_key_here
 ```
 
 That's it! The Docker setup automatically:
-- ✅ Builds the React frontend and embeds it in Spring Boot
-- ✅ Starts Ollama with llama3 model
+- ✅ Builds the React frontend and embeds it in Spring Boot  
+- ✅ **Pre-downloads AI models during build for fast startup**
+- ✅ Starts Ollama with llama3 model (ready immediately)
 - ✅ Configures networking between services
-- ✅ Sets up health checks
+- ✅ Sets up health checks  
 - ✅ Serves frontend and API from single port (8080)
 
-📖 **For detailed Docker instructions**, see [DOCKER.md](DOCKER.md)
+� **Performance**: First build ~10 minutes (model download), subsequent starts ~30 seconds!
+
+�📖 **For detailed Docker instructions**, see [DOCKER.md](DOCKER.md) | [Model Setup Guide](docs/docker-model-setup.md)
 
 ---
 

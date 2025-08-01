@@ -2,9 +2,11 @@
 
 # Build and run Movie Vibes with Docker (Backend + Frontend in single container)
 
-echo "🐳 Building Movie Vibes Docker image (Frontend + Backend)..."
-echo "📦 This will build both React frontend and Spring Boot backend..."
-docker build -t movievibes:latest .
+echo "🐳 Building Movie Vibes Docker images (Frontend + Backend + AI Models)..."
+echo "📦 This will build React frontend, Spring Boot backend, and pre-download AI models..."
+
+# Use our custom build script that builds both images
+./docker-build-all.sh
 
 if [ $? -eq 0 ]; then
     echo "✅ Build successful!"
@@ -24,10 +26,16 @@ if [ $? -eq 0 ]; then
     
     echo ""
     echo "🎬 Movie Vibes is starting up..."
+    echo "🤖 Downloading required AI models (this may take a few minutes on first run)..."
     echo "🌐 Frontend + Backend: http://localhost:8080"
     echo "🤖 API endpoint: http://localhost:8080/api/agent/recommendations?title=Inception"
     echo "🔧 Ollama API: http://localhost:11434"
     echo ""
+    echo "📊 Check status with: docker compose logs -f"
+    echo "🛑 Stop with: docker compose down"
+    echo "💡 The frontend is now served directly from the Spring Boot backend!"
+    echo ""
+    echo "⏳ Waiting for all services to be ready..."
     echo "📊 Check status with: docker compose logs -f"
     echo "🛑 Stop with: docker compose down"
     echo ""

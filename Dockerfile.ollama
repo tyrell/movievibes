@@ -1,0 +1,40 @@
+# Custom Ollama image with pre-downloaded models
+FROM ollama/ollama:latest
+
+# Set the environment variable for Ollama host
+ENV OLLAMA_HOST=0.0.0.0
+
+# Create a script to download models during build
+RUN echo '#!/bin/bash\n\
+set -e\n\
+echo "Starting Ollama server in background..."\n\
+ollama serve &\n\
+OLLAMA_PID=$!\n\
+echo "Waiting for Ollama to be ready..."\n\
+while ! curl -s http://localhost:11434/api/tags > /dev/null 2>&1; do\n\
+    echo "Waiting for Ollama server..."\n\
+    sleep 2\n\
+done\n\
+echo "Ollama server is ready!"\n\
+echo "Downloading llama3 model..."\n\
+ollama pull llama3\n\
+echo "Model download completed!"\n\
+echo "Stopping Ollama server..."\n\
+kill $OLLAMA_PID\n\
+wait $OLLAMA_PID 2>/dev/null || true\n\
+echo "Setup complete!"' > /setup-models.sh
+
+# Make the script executable
+RUN chmod +x /setup-models.sh
+
+# Install curl for the setup script
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Run the setup script to download models
+RUN /setup-models.sh
+
+# Clean up
+RUN rm /setup-models.sh
+
+# Return to default Ollama behavior
+CMD ["serve"]

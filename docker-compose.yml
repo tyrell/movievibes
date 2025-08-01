@@ -10,7 +10,8 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
       # Ollama connection
       - SPRING_AI_OLLAMA_BASE_URL=http://ollama:11434
-      - SPRING_AI_OLLAMA_MODEL=llama3
+      - SPRING_AI_OLLAMA_MODEL=llama3:latest
+      - SPRING_AI_OLLAMA_CHAT_MODEL=llama3:latest
       # OMDb API configuration
       - OMDB_URL=https://www.omdbapi.com/
       - OMDB_API_KEY=${OMDB_API_KEY:-your_omdb_api_key_here}
@@ -19,29 +20,29 @@ services:
         condition: service_healthy
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 60s
 
-  # Ollama for local AI model
+  # Ollama for local AI model (with pre-downloaded models)
   ollama:
-    image: ollama/ollama:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.ollama
     container_name: movievibes-ollama
+    command: ["serve"]
     ports:
       - "11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
     restart: unless-stopped
+    environment:
+      - OLLAMA_HOST=0.0.0.0
     healthcheck:
-      test: ["CMD", "ollama", "list"]
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
       interval: 30s
       timeout: 10s
       retries: 5
       start_period: 60s
-    # Use default Ollama startup
 
-volumes:
-  ollama_data:
-    driver: local
+
