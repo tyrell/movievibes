@@ -109,6 +109,46 @@ That's it! The Docker setup automatically:
 
 ---
 
+## ⚙️ Environment Setup
+
+**Important**: This application requires API keys that should never be committed to version control.
+
+### Required Environment Variables
+
+1. **Create environment file**:
+```bash
+cp .env.example .env
+```
+
+2. **Get an OMDb API Key**:
+   - Visit [OMDb API](http://www.omdbapi.com/apikey.aspx)
+   - Sign up for a free API key
+   - Add it to your `.env` file:
+
+```bash
+# .env
+OMDB_API_KEY=your_actual_api_key_here
+```
+
+### Docker Environment
+
+For Docker deployment, either:
+- Set environment variables in your shell
+- Use a `.env` file (automatically loaded by docker-compose)
+- Pass variables directly to docker-compose
+
+```bash
+# Option 1: Export environment variable
+export OMDB_API_KEY=your_actual_api_key_here
+docker compose up
+
+# Option 2: Use .env file (recommended)
+echo "OMDB_API_KEY=your_actual_api_key_here" > .env
+docker compose up
+```
+
+---
+
 ## 🔧 Manual Setup
 
 ### Backend Setup

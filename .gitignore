@@ -1,6 +1,11 @@
 # Ignore local config
 src/main/resources/application.properties
 
+# Environment variables (never commit API keys!)
+.env
+.env.local
+.env.production
+
 .DS_Store
 .gitattributes
 .mvn/
