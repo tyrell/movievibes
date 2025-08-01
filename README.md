@@ -27,8 +27,6 @@
 ### Full Demonstration
 <div align="center">
 
-[![Movie Vibes Demo - Click to Play](https://img.youtube.com/vi/aOhFi-hVSb4/maxresdefault.jpg)](https://www.youtube.com/watch?v=aOhFi-hVSb4)
-
 **🎬 [▶️ Watch the Complete Demo on YouTube](https://www.youtube.com/watch?v=aOhFi-hVSb4)**
 
 *See the full setup process and detailed feature walkthrough*
