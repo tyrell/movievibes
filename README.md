@@ -1,6 +1,24 @@
 # 🎬 Movie Vibes
 
+[![CI](https://github.com/tyrell/movievibes/actions/workflows/ci.yml/badge.svg)](https://github.com/tyrell/movievibes/actions/workflows/ci.yml)
+[![Package](https://github.com/tyrell/movievibes/actions/workflows/package.yml/badge.svg)](https://github.com/tyrell/movievibes/actions/workflows/package.yml)
+[![Release](https://github.com/tyrell/movievibes/actions/workflows/release.yml/badge.svg)](https://github.com/tyrell/movievibes/actions/workflows/release.yml)
+[![Latest Release](https://img.shields.io/github/v/release/tyrell/movievibes?include_prereleases&label=release)](https://github.com/tyrell/movievibes/releases)
+[![Java](https://img.shields.io/badge/Java-17+-orange.svg)](https://openjdk.java.net/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.4-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org/)
+[![License](https://img.shields.io/github/license/tyrell/movievibes)](LICENSE)
+
 **Movie Vibes** is an AI-powered application that determines the *vibe* of a given movie using metadata and recommends similar movies that share the same emotional or thematic feel. It features a Spring Boot backend with Spring AI and a modern React frontend.
+
+## 📊 Project Stats
+
+[![GitHub stars](https://img.shields.io/github/stars/tyrell/movievibes?style=social)](https://github.com/tyrell/movievibes/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/tyrell/movievibes?style=social)](https://github.com/tyrell/movievibes/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/tyrell/movievibes)](https://github.com/tyrell/movievibes/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/tyrell/movievibes)](https://github.com/tyrell/movievibes/pulls)
+[![GitHub last commit](https://img.shields.io/github/last-commit/tyrell/movievibes)](https://github.com/tyrell/movievibes/commits/main)
+[![Code size](https://img.shields.io/github/languages/code-size/tyrell/movievibes)](https://github.com/tyrell/movievibes)
 
 ---
 
