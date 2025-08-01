@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # Movie Vibes Application
+  # Movie Vibes Application (Backend + Frontend)
   movievibes:
     build: .
     container_name: movievibes-app
@@ -10,14 +10,15 @@ services:
     environment:
       # Spring profiles
       - SPRING_PROFILES_ACTIVE=docker
-      # Ollama connection (assuming Ollama runs on host)
-      - SPRING_AI_OLLAMA_BASE_URL=http://host.docker.internal:11434
+      # Ollama connection
+      - SPRING_AI_OLLAMA_BASE_URL=http://ollama:11434
       - SPRING_AI_OLLAMA_MODEL=llama3
       # OMDb API configuration
       - OMDB_URL=https://www.omdbapi.com/
       - OMDB_API_KEY=${OMDB_API_KEY:-your_omdb_api_key_here}
     depends_on:
-      - ollama
+      ollama:
+        condition: service_healthy
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
@@ -35,6 +36,12 @@ services:
     volumes:
       - ollama_data:/root/.ollama
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     # Pull llama3 model on startup
     command: >
       sh -c "

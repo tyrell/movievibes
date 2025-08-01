@@ -1,6 +1,6 @@
 # 🐳 Docker Deployment Guide
 
-This guide covers how to run Movie Vibes using Docker for easy deployment and development.
+This guide covers how to run Movie Vibes using Docker. The setup includes both the React frontend and Spring Boot backend in a single optimized container.
 
 ## 📋 Prerequisites
 
@@ -20,13 +20,15 @@ export OMDB_API_KEY=your_api_key_here
 ```
 
 The script will:
-- Build the Movie Vibes Docker image
+- Build the React frontend automatically
+- Build the Spring Boot backend with embedded frontend
 - Start both Movie Vibes and Ollama containers
 - Pull the llama3 model automatically
 - Set up health checks and networking
 
 ### 3. Access the application
-- **Movie Vibes API**: http://localhost:8080
+- **Movie Vibes App**: http://localhost:8080 (Frontend + API)
+- **API Endpoint**: http://localhost:8080/api/agent/recommendations?title=Inception
 - **Ollama API**: http://localhost:11434
 - **Health Check**: http://localhost:8080/actuator/health
 
@@ -34,6 +36,22 @@ The script will:
 ```bash
 ./docker-stop.sh
 ```
+
+## 🏗️ Architecture
+
+The Docker setup includes:
+
+- **movievibes**: Single container with React frontend + Spring Boot backend
+- **ollama**: Local LLM service with llama3 model  
+- **volumes**: Persistent storage for Ollama models
+
+## 🎯 Single Container Benefits
+
+✅ **Simplified Deployment**: One container for frontend + backend  
+✅ **No CORS Issues**: Frontend served directly by Spring Boot  
+✅ **Smaller Resource Usage**: Shared JVM and optimized builds  
+✅ **Easier Networking**: No inter-service communication needed  
+✅ **Production Ready**: Optimized static asset serving
 
 ## 🔧 Manual Docker Commands
 
@@ -63,14 +81,6 @@ docker run -d \
   -e SPRING_AI_OLLAMA_BASE_URL=http://host.docker.internal:11434 \
   movievibes:latest
 ```
-
-## 🏗️ Architecture
-
-The Docker setup includes:
-
-- **movievibes**: Main Spring Boot application
-- **ollama**: Local LLM service with llama3 model
-- **volumes**: Persistent storage for Ollama models
 
 ## ⚙️ Configuration
 
@@ -132,6 +142,12 @@ docker rmi ollama/ollama:latest
 
 ## 🛠️ Development
 
+### Test frontend build locally
+```bash
+# Test the React build process
+./test-frontend-build.sh
+```
+
 ### Rebuild after changes
 ```bash
 docker-compose down
@@ -142,6 +158,18 @@ docker-compose up -d
 ### Access container shell
 ```bash
 docker exec -it movievibes-app sh
+```
+
+### Development workflow
+```bash
+# 1. Make changes to frontend or backend
+# 2. Rebuild and restart
+docker-compose down
+docker build -t movievibes:latest . --no-cache
+docker-compose up -d
+
+# 3. Check logs for any issues
+docker-compose logs -f movievibes
 ```
 
 ## 📦 Production Deployment

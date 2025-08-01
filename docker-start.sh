@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Build and run Movie Vibes with Docker
+# Build and run Movie Vibes with Docker (Backend + Frontend in single container)
 
-echo "🐳 Building Movie Vibes Docker image..."
+echo "🐳 Building Movie Vibes Docker image (Frontend + Backend)..."
+echo "📦 This will build both React frontend and Spring Boot backend..."
 docker build -t movievibes:latest .
 
 if [ $? -eq 0 ]; then
@@ -23,11 +24,14 @@ if [ $? -eq 0 ]; then
     
     echo ""
     echo "🎬 Movie Vibes is starting up..."
-    echo "📱 Application will be available at: http://localhost:8080"
-    echo "🤖 Ollama will be available at: http://localhost:11434"
+    echo "🌐 Frontend + Backend: http://localhost:8080"
+    echo "🤖 API endpoint: http://localhost:8080/api/agent/recommendations?title=Inception"
+    echo "🔧 Ollama API: http://localhost:11434"
     echo ""
     echo "📊 Check status with: docker-compose logs -f"
     echo "🛑 Stop with: docker-compose down"
+    echo ""
+    echo "💡 The frontend is now served directly from the Spring Boot backend!"
 else
     echo "❌ Build failed!"
     exit 1

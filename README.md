@@ -85,7 +85,7 @@
 
 ## � Quick Start with Docker (Recommended)
 
-The easiest way to run Movie Vibes is using Docker:
+The easiest way to run Movie Vibes is using Docker. **Both frontend and backend are built and served from a single container:**
 
 ```bash
 # 1. Set your OMDb API key
@@ -95,15 +95,16 @@ export OMDB_API_KEY=your_api_key_here
 ./docker-start.sh
 
 # 3. Access the application
-# Movie Vibes: http://localhost:8080
+# Full App (Frontend): http://localhost:8080
 # API endpoint: http://localhost:8080/api/agent/recommendations?title=Inception
 ```
 
 That's it! The Docker setup automatically:
-- ✅ Builds the Spring Boot application
+- ✅ Builds the React frontend and embeds it in Spring Boot
 - ✅ Starts Ollama with llama3 model
 - ✅ Configures networking between services
 - ✅ Sets up health checks
+- ✅ Serves frontend and API from single port (8080)
 
 📖 **For detailed Docker instructions**, see [DOCKER.md](DOCKER.md)
 
