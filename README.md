@@ -1,6 +1,10 @@
 # 🎬 Movie Vibes
 
-[![CI](https://github.com/tyrell/movievibes/actions/workflows/ci.yml/badge.svg)](https://github.com/tyrell/movievibes/actions/workflows/ci.yml)
+[![CI](https://github.com/tyrell/movievibes/actions/workflows/ci.yml/badge.svg)](https://## 🔧 Manual Setup
+
+*If you prefer to run without Docker or want to develop locally:*
+
+### Backend Setuphub.com/tyrell/movievibes/actions/workflows/ci.yml)
 [![Package](https://github.com/tyrell/movievibes/actions/workflows/package.yml/badge.svg)](https://github.com/tyrell/movievibes/actions/workflows/package.yml)
 [![Release](https://github.com/tyrell/movievibes/actions/workflows/release.yml/badge.svg)](https://github.com/tyrell/movievibes/actions/workflows/release.yml)
 [![Latest Release](https://img.shields.io/github/v/release/tyrell/movievibes?include_prereleases&label=release)](https://github.com/tyrell/movievibes/releases)
@@ -60,20 +64,52 @@
 | Movie Data   | OMDb API                  |
 | Build Tool   | Maven + npm               |
 | Language     | Java 17+ + TypeScript    |
+| Deployment   | Docker + Docker Compose   |
 
 ---
 
 ## 📦 Requirements
 
+### Local Development
 - Java 17+
 - Maven 3.8+
 - Node.js 16+ and npm
 - Ollama with llama3 model
 - OMDb API key (free: https://www.omdbapi.com/apikey.aspx)
 
+### Docker Deployment
+- Docker Desktop (or Docker Engine + Docker Compose)
+- OMDb API key
+
 ---
 
-## 🔧 Setup
+## � Quick Start with Docker (Recommended)
+
+The easiest way to run Movie Vibes is using Docker:
+
+```bash
+# 1. Set your OMDb API key
+export OMDB_API_KEY=your_api_key_here
+
+# 2. Start the application (builds everything automatically)
+./docker-start.sh
+
+# 3. Access the application
+# Movie Vibes: http://localhost:8080
+# API endpoint: http://localhost:8080/api/agent/recommendations?title=Inception
+```
+
+That's it! The Docker setup automatically:
+- ✅ Builds the Spring Boot application
+- ✅ Starts Ollama with llama3 model
+- ✅ Configures networking between services
+- ✅ Sets up health checks
+
+📖 **For detailed Docker instructions**, see [DOCKER.md](DOCKER.md)
+
+---
+
+## �🔧 Manual Setup
 
 ### Backend Setup
 

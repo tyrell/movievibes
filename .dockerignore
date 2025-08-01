@@ -1,0 +1,45 @@
+# Ignore build artifacts
+target/
+*.jar
+*.war
+*.ear
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore Git
+.git/
+.gitignore
+
+# Ignore Docker files (to avoid recursion)
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Ignore Maven wrapper (we use system Maven in container)
+.mvn/
+mvnw
+mvnw.cmd
+
+# Ignore Node.js (if you have frontend build)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+
+# Ignore test results
+*.out
+*.err
