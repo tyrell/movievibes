@@ -11,6 +11,14 @@
 
 **Movie Vibes** is an AI-powered application that determines the *vibe* of a given movie using metadata and recommends similar movies that share the same emotional or thematic feel. It features a Spring Boot backend with Spring AI and a modern React frontend.
 
+## 🎥 Demo
+
+Check out the live demo to see Movie Vibes in action:
+
+[![Movie Vibes Demo](https://img.youtube.com/vi/aOhFi-hVSb4/maxresdefault.jpg)](https://www.youtube.com/watch?v=aOhFi-hVSb4)
+
+[▶️ Watch the Demo on YouTube](https://www.youtube.com/watch?v=aOhFi-hVSb4)
+
 ## 📊 Project Stats
 
 [![GitHub stars](https://img.shields.io/github/stars/tyrell/movievibes?style=social)](https://github.com/tyrell/movievibes/stargazers)
