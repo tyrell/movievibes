@@ -13,15 +13,25 @@
 
 ## 🎥 Demo
 
-**📺 Watch Movie Vibes in Action** - Click the video below to see a full demonstration:
+**📺 See Movie Vibes in Action:**
 
+### Quick Preview
+<div align="center">
+
+![Movie Vibes Demo](demo.gif)
+
+*AI-powered movie vibe analysis and recommendations in action*
+
+</div>
+
+### Full Demonstration
 <div align="center">
 
 [![Movie Vibes Demo - Click to Play](https://img.youtube.com/vi/aOhFi-hVSb4/maxresdefault.jpg)](https://www.youtube.com/watch?v=aOhFi-hVSb4)
 
-**🎬 [▶️ Click Here to Watch the Full Demo on YouTube](https://www.youtube.com/watch?v=aOhFi-hVSb4)**
+**🎬 [▶️ Watch the Complete Demo on YouTube](https://www.youtube.com/watch?v=aOhFi-hVSb4)**
 
-*See the AI-powered movie vibe analysis and recommendations in real-time!*
+*See the full setup process and detailed feature walkthrough*
 
 </div>
 
