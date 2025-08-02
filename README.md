@@ -324,23 +324,6 @@ The frontend will be available at `http://localhost:3000`
 
 ---
 
-## 📁 Project Structure
-
-```
-movievibes/
-├── src/main/java/           # Spring Boot backend
-│   └── co/tyrell/movievibes/
-├── frontend/                # React frontend
-│   ├── src/
-│   │   ├── components/     # React components
-│   │   ├── services/       # API services
-│   │   └── types/          # TypeScript types
-│   └── public/
-└── README.md
-```
-
----
-
 ## 📄 License
 
 MIT License
