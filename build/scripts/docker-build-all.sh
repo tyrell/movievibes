@@ -7,14 +7,14 @@ echo ""
 
 echo "📦 Step 1: Building custom Ollama image with llama3 model..."
 echo "   This will take a few minutes on first build but will be cached for future builds."
-docker build -f Dockerfile.ollama -t movievibes-ollama:latest .
+docker build -f build/docker/Dockerfile.ollama -t movievibes-ollama:latest .
 
 if [ $? -eq 0 ]; then
     echo "✅ Ollama image with models built successfully!"
     echo ""
     
     echo "📦 Step 2: Building MovieVibes application image..."
-    docker build -t movievibes:latest .
+    docker build -f build/docker/Dockerfile -t movievibes:latest .
     
     if [ $? -eq 0 ]; then
         echo "✅ MovieVibes application image built successfully!"

@@ -37,7 +37,10 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
+
+# Allow our build configuration directory but ignore build outputs
+!build/
+**/build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 

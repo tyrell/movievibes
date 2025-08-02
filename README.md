@@ -79,6 +79,49 @@
 
 ---
 
+## 📁 Repository Structure
+
+```
+movievibes/
+├── build/                   # Build and deployment configuration
+│   ├── docker/             # Docker files and compose configuration
+│   │   ├── Dockerfile      # Main application container
+│   │   ├── Dockerfile.ollama # Custom Ollama image with pre-downloaded models  
+│   │   ├── docker-compose.yml # Complete stack orchestration
+│   │   └── .dockerignore   # Docker build context exclusions
+│   └── scripts/            # Build and deployment scripts
+│       ├── docker-build-all.sh # Build both application and Ollama images
+│       ├── docker-start.sh # Start the complete application stack
+│       ├── docker-stop.sh  # Stop and cleanup containers
+│       └── test-*.sh       # Testing and validation scripts
+├── docs/                   # Documentation and guides
+├── frontend/               # React TypeScript frontend
+├── src/                    # Spring Boot backend source code
+├── docker-*.sh            # Convenience scripts (delegate to build/scripts/)
+├── .env.example           # Environment variables template
+├── pom.xml                # Maven project configuration
+└── README.md              # Main project documentation
+```
+
+### Quick Commands
+
+```bash
+# Start the application (builds if needed)
+./docker-start.sh
+
+# Build Docker images only
+./docker-build.sh
+
+# Stop the application
+./docker-stop.sh
+
+# Manual Docker commands
+docker compose -f build/docker/docker-compose.yml up -d
+docker compose -f build/docker/docker-compose.yml down
+```
+
+---
+
 ## 🚀 Quick Start with Docker (Recommended)
 
 The easiest way to run Movie Vibes is using Docker. **Both frontend and backend are built and served from a single container with pre-downloaded AI models:**
@@ -140,11 +183,11 @@ For Docker deployment, either:
 ```bash
 # Option 1: Export environment variable
 export OMDB_API_KEY=your_actual_api_key_here
-docker compose up
+docker compose -f build/docker/docker-compose.yml up
 
 # Option 2: Use .env file (recommended)
 echo "OMDB_API_KEY=your_actual_api_key_here" > .env
-docker compose up
+docker compose -f build/docker/docker-compose.yml up
 ```
 
 ---
