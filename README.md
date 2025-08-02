@@ -83,24 +83,24 @@
 
 ```
 movievibes/
-├── build/                   # Build and deployment configuration
-│   ├── docker/             # Docker files and compose configuration
-│   │   ├── Dockerfile      # Main application container
-│   │   ├── Dockerfile.ollama # Custom Ollama image with pre-downloaded models  
-│   │   ├── docker-compose.yml # Complete stack orchestration
-│   │   └── .dockerignore   # Docker build context exclusions
-│   └── scripts/            # Build and deployment scripts
-│       ├── docker-build-all.sh # Build both application and Ollama images
-│       ├── docker-start.sh # Start the complete application stack
-│       ├── docker-stop.sh  # Stop and cleanup containers
-│       └── test-*.sh       # Testing and validation scripts
-├── docs/                   # Documentation and guides
-├── frontend/               # React TypeScript frontend
-├── src/                    # Spring Boot backend source code
-├── docker-*.sh            # Convenience scripts (delegate to build/scripts/)
-├── .env.example           # Environment variables template
-├── pom.xml                # Maven project configuration
-└── README.md              # Main project documentation
+├── build/                        # Build and deployment configuration
+│   ├── docker/                   # Docker files and compose configuration
+│   │   ├── Dockerfile            # Main application container
+│   │   ├── Dockerfile.ollama     # Custom Ollama image with pre-downloaded models  
+│   │   ├── docker-compose.yml    # Complete stack orchestration
+│   │   └── .dockerignore         # Docker build context exclusions
+│   └── scripts/                  # Build and deployment scripts
+│       ├── docker-build-all.sh   # Build both application and Ollama images
+│       ├── docker-start.sh       # Start the complete application stack
+│       ├── docker-stop.sh        # Stop and cleanup containers
+│       └── test-*.sh             # Testing and validation scripts
+├── docs/                         # Documentation and guides
+├── frontend/                     # React TypeScript frontend
+├── src/                          # Spring Boot backend source code
+├── docker-*.sh                   # Convenience scripts (delegate to build/scripts/)
+├── .env.example                  # Environment variables template
+├── pom.xml                       # Maven project configuration
+└── README.md                     # Main project documentation
 ```
 
 ### Quick Commands
