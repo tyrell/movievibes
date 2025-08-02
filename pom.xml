@@ -6,8 +6,8 @@
 
 	<groupId>co.tyrell</groupId>
 	<artifactId>movievibes</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Spring AI Movie Vibe</name>
+	<version>1.0.0</version>
+			<name>Spring AI Movie Vibe</name>
 	<description>Agentic AI Movie Vibe Analyzer using Spring AI and Ollama</description>
 	<url>https://github.com/tyrell/movievibes</url>
 
