@@ -134,8 +134,8 @@ export OMDB_API_KEY=your_api_key_here
 ./docker-start.sh
 
 # 3. Access the application
-# Full App (Frontend): http://localhost:8080
-# API endpoint: http://localhost:8080/api/agent/recommendations?title=Inception
+Full App (Frontend): http://localhost:8080
+API endpoint: http://localhost:8080/api/agent/recommendations?title=Inception
 ```
 
 That's it! The Docker setup automatically:
