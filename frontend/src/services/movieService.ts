@@ -9,7 +9,7 @@ export class MovieService {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/agent/recommendations?title=${encodeURIComponent(title)}`,
+        `${API_BASE_URL}/agent/recommendations/original?title=${encodeURIComponent(title)}`,
         {
           method: 'GET',
           headers: {

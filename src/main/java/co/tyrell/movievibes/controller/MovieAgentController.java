@@ -15,7 +15,7 @@ public class MovieAgentController {
         this.agent = agent;
     }
 
-    @GetMapping("/recommendations")
+    @GetMapping("/recommendations/original")
     public MovieVibeRecommendationResponse getAgenticRecommendations(@RequestParam String title) {
         return agent.fulfillGoal(title);
     }

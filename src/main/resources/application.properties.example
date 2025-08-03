@@ -1,5 +1,11 @@
 spring.application.name=movievibes
 spring.ai.ollama.base-url=http://localhost:11434
 spring.ai.ollama.model=llama3
+
+# Traditional OMDB API configuration (default mode)
 omdb.url=https://www.omdbapi.com/
 omdb.api-key=REPLACE_WITH_YOUR_KEY
+
+# MCP Server configuration (optional - uses Model Context Protocol to access OMDb API)
+mcp.omdb.base-url=http://localhost:8081
+mcp.enabled=false

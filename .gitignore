@@ -6,6 +6,13 @@ src/main/resources/application.properties
 .env.local
 .env.production
 
+# Log files
+*.log
+logs/
+**/*.log
+app.log
+frontend.log
+
 .DS_Store
 .gitattributes
 .mvn/

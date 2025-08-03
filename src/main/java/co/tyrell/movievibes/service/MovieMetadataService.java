@@ -8,11 +8,20 @@ import co.tyrell.movievibes.model.OmdbMovieResponse;
 @Service
 public class MovieMetadataService {
 
-    @Autowired
-    OmdbClient omdbClient;
+    @Autowired(required = false)
+    private OmdbClient omdbClient;
+
+    @Autowired(required = false)
+    private McpOmdbClient mcpOmdbClient;
 
     public OmdbMovieResponse getMetadata(String movieTitle) {
-        return omdbClient.getMovieByTitle(movieTitle);
+        // Use MCP client if available, otherwise fall back to direct API
+        if (mcpOmdbClient != null) {
+            return mcpOmdbClient.getMovieByTitle(movieTitle);
+        } else if (omdbClient != null) {
+            return omdbClient.getMovieByTitle(movieTitle);
+        } else {
+            throw new RuntimeException("No OMDB client available. Please configure either MCP or direct OMDB API access.");
+        }
     }
-
 }

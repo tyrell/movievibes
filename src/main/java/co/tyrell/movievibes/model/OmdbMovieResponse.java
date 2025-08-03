@@ -82,6 +82,62 @@ public class OmdbMovieResponse {
         this.actors = actors;
     }
 
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
+
+    public void setRated(String rated) {
+        this.rated = rated;
+    }
+
+    public void setReleased(String released) {
+        this.released = released;
+    }
+
+    public void setRuntime(String runtime) {
+        this.runtime = runtime;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setAwards(String awards) {
+        this.awards = awards;
+    }
+
+    public void setImdbRating(String imdbRating) {
+        this.imdbRating = imdbRating;
+    }
+
+    public void setImdbID(String imdbID) {
+        this.imdbID = imdbID;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
     public String getTitle() {
         return title;
     }

@@ -4,6 +4,7 @@ import co.tyrell.movievibes.model.OmdbMovieResponse;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -13,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 @Service
 @RequiredArgsConstructor
+@ConditionalOnProperty(name = "mcp.enabled", havingValue = "false", matchIfMissing = true)
 public class OmdbClient {
 
     @Value("${omdb.url}")
